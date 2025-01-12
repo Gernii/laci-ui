@@ -1,0 +1,55 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "package": "turbo package",
+    "commit": "czg",
+    "prepare": "husky",
+    "check": "turbo check",
+    "test": "turbo test",
+    "fix": "run-s \"fix.*\"",
+    "fix.lint": "turbo lint.fix",
+    "fix.fmt": "turbo fmt.fix",
+    "validate": "run-s \"validate.*\"",
+    "validate.lint": "turbo lint.check",
+    "validate.test": "turbo test",
+    "validate.fmt": "turbo fmt.check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.11",
+    "@eslint/compat": "^1.2.5",
+    "@eslint/js": "^9.18.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
+    "@vitest/eslint-plugin": "^1.1.24",
+    "czg": "^1.11.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.46.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "npm-run-all2": "^7.0.2",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.2",
+    "svelte": "^5.17.3",
+    "svelte-check": "^4.1.3",
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
+    "vite": "^5.4.11"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@10.9.2",
+  "workspaces": [
+    "apps/docs",
+    "packages/laci-ui"
+  ]
+}
