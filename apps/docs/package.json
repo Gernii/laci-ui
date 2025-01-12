@@ -1,0 +1,58 @@
+{
+	"name": "docs",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint .",
+		"test": "run-s \"test.*\"",
+		"test.unit": "vitest run",
+		"---------FMT FIX-----------": "Fmt check and fix vaid code",
+		"fmt.fix": "run-s \"fmt.fix.*\"",
+		"fmt.fix.prettier": "prettier --write \"src/**/*.svelte\"",
+		"fmt.fix.biome": "biome format --write ./src",
+		"---------FMT CHECK-----------": "Fmt check vaid code only",
+		"fmt.check": "run-s \"fmt.check.*\"",
+		"fmt.check.biome": "biome format ./src",
+		"---------LINT FIX-----------": "Lint check and fix vaid code",
+		"lint.fix": "run-s \"lint.fix.*\"",
+		"lint.fix.eslint": "eslint \"src/**/*.svelte\" --fix",
+		"lint.fix.biome": "biome check --write --unsafe ./src",
+		"---------LINT CHECK-----------": "Lint check vaid code only",
+		"lint.check": "run-s \"lint.check.*\"",
+		"lint.check.eslint": "eslint  \"src/**/*.svelte\"  --max-warnings=0",
+		"lint.check.biome": "biome check ./src"
+	},
+	"devDependencies": {
+		"@iconify-json/lucide": "^1.2.22",
+		"@inlang/paraglide-sveltekit": "^0.11.1",
+		"@sveltejs/adapter-cloudflare": "^4.8.0",
+		"@sveltejs/kit": "^2.15.2",
+		"@tailwindcss/postcss": "^4.0.0-beta.9",
+		"daisyui": "^5.0.0-beta.1",
+		"laci-ui": "*",
+		"mdsvex": "^0.11.2",
+		"prettier-plugin-tailwindcss": "^0.6.9",
+		"tailwindcss": "^4.0.0-beta.9",
+		"unplugin-icons": "^22.0.0",
+		"vitest": "^2.1.8"
+	},
+	"lint-staged": {
+		"src/**/*.svelte": [
+			"eslint --fix",
+			"eslint --max-warnings=0",
+			"prettier --write",
+			"prettier --check"
+		],
+		"src/**/*.ts": [
+			"biome format --write --no-errors-on-unmatched",
+			"biome check --write --unsafe --no-errors-on-unmatched"
+		]
+	}
+}
