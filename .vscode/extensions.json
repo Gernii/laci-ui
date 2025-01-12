@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "aaron-bond.better-comments",
+    "vitest.explorer",
+    "biomejs.biome",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "inlang.vs-code-extension",
+    "svelte.svelte-vscode",
+    "bradlc.vscode-tailwindcss",
+    "gruntfuggly.todo-tree"
+  ]
+}

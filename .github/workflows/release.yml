@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: {}
+jobs:
+  release:
+    # prevents this action from running on forks
+    if: github.repository == 'Gernii/laci-ui'
+    permissions:
+      contents: write # to create release (changesets/action)
+      id-token: write # OpenID Connect token needed for provenance
+      pull-requests: write # to create pull request (changesets/action)
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Package
+        run: npm run package
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

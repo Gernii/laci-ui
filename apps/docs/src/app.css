@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+
+
+@plugin "daisyui";
+
+@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: oklch(66.76% 0.184 183.61);
+  --color-secondary: oklch(72.7725% .149783 33.200363);
+  --color-accent: #C148AC;
+  --color-neutral: #021431;
+};
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: oklch(78.83% 0.1307 177.39);
+  --color-secondary: oklch(72.7725% .149783 33.200363);
+};
+
+@media (min-width: 1280px) {
+    html:has(.xl\:drawer-open.xl\:drawer-open) {
+      overflow-y: unset !important;
+    }
+  }
